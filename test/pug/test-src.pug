@@ -1,0 +1,20 @@
+doctype html
+html(lang="en", style="height: 100%")
+    head
+        block head
+            meta(charset="utf-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+            meta(http-equiv="Cache-Control" content="no-cache")
+            meta(name="format-detection" content="telephone=no")
+            title Мониторинг движения лекарственных препаратов
+            style(type="text/css").
+                #extreact-container, .extreact-app_container {
+                    height: 100%
+                }
+            //- link(rel="stylesheet", href="css/app.css?cache=" + cacheTimestamp)
+    body(style="height: 100%")
+        block body
+            div#extreact-container
+            script(type="text/javascript") window.$VERSION = 'v1';
+            //- script(type="text/javascript" src="js/main.app.js")
+            //- script(type="text/javascript" src="js/main.app.js?cache=" + cacheTimestamp)
