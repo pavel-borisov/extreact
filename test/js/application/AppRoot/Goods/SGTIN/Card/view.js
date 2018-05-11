@@ -5,13 +5,12 @@
 import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
-import classRole from '../../../../../../../src/decorator/classRole/';
 import {b64DecodeUnicode} from '../../../../../../../src/utils/Base64/';
 import Action from '../../../../../../../src/view/Action/';
 import AppPageView from '../../../../../page/view.js';
 import TestHeader from '../../../../../view/TestHeader/';
 
-class AppGoodsSGTINCardPageView extends AppPageView {
+export default class AppGoodsSGTINCardPageView extends AppPageView {
     render () {
         return super.render(() => {
             return (
@@ -36,5 +35,3 @@ class AppGoodsSGTINCardPageView extends AppPageView {
         this.props.history.goBack();
     }
 }
-
-export default AppGoodsSGTINCardPageView;

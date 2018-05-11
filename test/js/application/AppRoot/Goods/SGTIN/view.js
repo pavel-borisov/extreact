@@ -5,12 +5,11 @@
 import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
-import classRole from '../../../../../../src/decorator/classRole/';
 import Action from '../../../../../../src/view/Action/';
 import AppPageView from '../../../../page/view.js';
 import TestHeader from '../../../../view/TestHeader/';
 
-class AppGoodsSGTINPageView extends AppPageView {
+export default class AppGoodsSGTINPageView extends AppPageView {
     render () {
         return super.render(() => {
             return (
@@ -25,5 +24,3 @@ class AppGoodsSGTINPageView extends AppPageView {
         });
     }
 }
-
-export default AppGoodsSGTINPageView;

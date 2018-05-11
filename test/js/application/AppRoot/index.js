@@ -6,7 +6,6 @@ import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
 import Page from '../../../../src/page/';
-import classRole from '../../../../src/decorator/classRole/';
 import EventsBus from '../../../../src/utils/EventsBus/';
 import AppRootView from './view.js';
 
@@ -31,8 +30,7 @@ const routes = [
     },
 ];
 
-@classRole('Controller')
-class AppRoot extends Page {
+export default class AppRoot extends Page {
     eventsBus = null;
     constructor (args) {
         super(routes, args);
@@ -42,5 +40,3 @@ class AppRoot extends Page {
         return super.render(AppRootView, props);
     }
 }
-
-export default AppRoot;

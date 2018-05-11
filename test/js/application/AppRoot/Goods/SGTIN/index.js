@@ -6,7 +6,6 @@ import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
 import Page from '../../../../../../src/page/';
-import classRole from '../../../../../../src/decorator/classRole/';
 import {syncLoader} from '../../../../../../src/utils/AsyncComponent/';
 import AppGoodsSGTINPageView from './view.js';
 
@@ -33,8 +32,7 @@ const routes = [
     },
 ];
 
-@classRole('Controller')
-class AppGoodsSGTINPage extends Page {
+export default class AppGoodsSGTINPage extends Page {
     constructor (args) {
         super(routes, args);
     }
@@ -42,5 +40,3 @@ class AppGoodsSGTINPage extends Page {
         return super.render(AppGoodsSGTINPageView, props);
     }
 }
-
-export default AppGoodsSGTINPage;

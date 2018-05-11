@@ -8,7 +8,7 @@ import React from 'react';
 import classRole from '../../../../../src/decorator/classRole/';
 import AppPageView from '../../../page/view.js';
 
-class AppMembersPageView extends AppPageView {
+export default class AppMembersPageView extends AppPageView {
     render () {
         return super.render(() => {
             return (
@@ -19,5 +19,3 @@ class AppMembersPageView extends AppPageView {
         });
     }
 }
-
-export default AppMembersPageView;

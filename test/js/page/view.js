@@ -7,7 +7,4 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import PageView from '../../../src/page/view.js';
 
-class AppPageView extends PageView {
-}
-
-export default AppPageView;
+export default class AppPageView extends PageView {}

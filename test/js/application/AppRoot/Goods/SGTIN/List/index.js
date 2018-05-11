@@ -6,11 +6,9 @@ import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
 import Page from '../../../../../../../src/page/';
-import classRole from '../../../../../../../src/decorator/classRole/';
 import AppGoodsSGTINListPageView from './view.js';
 
-@classRole('Controller')
-class AppGoodsSGTINListPage extends Page {
+export default class AppGoodsSGTINListPage extends Page {
     constructor (args) {
         super(null, args);
     }
@@ -18,5 +16,3 @@ class AppGoodsSGTINListPage extends Page {
         return super.render(AppGoodsSGTINListPageView, props);
     }
 }
-
-export default AppGoodsSGTINListPage;

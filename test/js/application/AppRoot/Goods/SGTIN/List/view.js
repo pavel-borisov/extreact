@@ -5,14 +5,12 @@
 import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
-//import { Link } from 'react-router-dom';
-import classRole from '../../../../../../../src/decorator/classRole/';
 import Action from '../../../../../../../src/view/Action/';
 import LinkWithOpts from '../../../../../../../src/view/LinkWithOpts/';
 import AppPageView from '../../../../../page/view.js';
 import TestHeader from '../../../../../view/TestHeader/';
 
-class AppGoodsSGTINListPageView extends AppPageView {
+export default class AppGoodsSGTINListPageView extends AppPageView {
     render () {
         return super.render(() => {
             return (
@@ -36,5 +34,3 @@ class AppGoodsSGTINListPageView extends AppPageView {
         });
     }
 }
-
-export default AppGoodsSGTINListPageView;

@@ -6,7 +6,6 @@ import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
 import Page from '../../../../../src/page/';
-import classRole from '../../../../../src/decorator/classRole/';
 import AppGoodsPageView from './view.js';
 
 const routes = [
@@ -29,8 +28,7 @@ const routes = [
     },
 ];
 
-@classRole('Controller')
-class AppGoodsPage extends Page {
+export default class AppGoodsPage extends Page {
     constructor (args) {
         super(routes, args);
     }
@@ -38,5 +36,3 @@ class AppGoodsPage extends Page {
         return super.render(AppGoodsPageView, props);
     }
 }
-
-export default AppGoodsPage;
