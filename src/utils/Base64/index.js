@@ -6,20 +6,20 @@ export function b64EncodeUnicode(obj) {
     // first we use encodeURIComponent to get percent-encoded UTF-8,
     // then we convert the percent encodings into raw bytes which
     // can be fed into btoa.
-    let str = JSON.stringify(obj);
-    str = btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        function toSolidBytes(match, p1) {
-            return String.fromCharCode('0x' + p1);
-        }));
-    return str;
+    return btoa(
+        encodeURIComponent(JSON.stringify(obj))
+            .replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode(`0x${p1}`))
+    );
 }
 
-export function b64DecodeUnicode(search) {
+export function b64DecodeUnicode(str) {
     // Going backwards: from bytestream, to percent-encoding, to original string.
-    let str = String(search || '');
-    str = str.startsWith('?') ? str.slice(1) : str;
-    str = decodeURIComponent(atob(str).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    return JSON.parse(str);
+    return JSON.parse(
+        decodeURIComponent(
+            atob(str.startsWith('?') ? str.slice(1) : str)
+                .split('')
+                .map(c => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
+                .join('')
+        )
+    );
 }

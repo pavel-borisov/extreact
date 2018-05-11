@@ -4,9 +4,8 @@
 
 export default function (role) {
     const strRole = String(role);
-    const isName  = strRole.charAt(0).toUpperCase() + strRole.slice(1).toLowerCase();
     return function (Class) {
-        const ROLE = Symbol();
+        const ROLE = Symbol(`extreact.class_role.${strRole}`);
         Object.defineProperties(Class, {
             [ROLE]: {
                 configurable: false,
@@ -14,7 +13,7 @@ export default function (role) {
                 writable: false,
                 value: role,
             },
-            [`is${isName}`]: {
+            [`is${strRole}`]: {
                 configurable: false,
                 enumerable: false,
                 writable: false,

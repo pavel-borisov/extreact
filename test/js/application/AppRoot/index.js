@@ -9,6 +9,8 @@ import Page from '../../../../src/page/';
 import EventsBus from '../../../../src/utils/EventsBus/';
 import AppRootView from './view.js';
 
+import TypeString from '../../../../src/type/scalar/string/';
+
 const routes = [
     {
         path: '/',
@@ -35,6 +37,13 @@ export default class AppRoot extends Page {
     constructor (args) {
         super(routes, args);
         this.eventsBus = new EventsBus();
+        const t = new TypeString({name: 't'});
+        console.log('---',
+            t.constructor.isType,
+            t.constructor.isTypeScalar,
+            t.constructor.isTypeString,
+            TypeString[Symbol.for('type.scalar.formats')]
+        );
     }
     render (props={}) {
         return super.render(AppRootView, props);
