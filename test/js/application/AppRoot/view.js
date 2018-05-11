@@ -6,15 +6,20 @@ import { observable, computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 import React from 'react';
 import classRole from '../../../../src/decorator/classRole/';
+import Action from '../../../../src/view/Action/';
 import MenuItem from '../../../../src/view/MenuItem/';
 import AppPageView from '../../page/view.js';
+import TestHeader from '../../view/TestHeader/';
 
 class AppRootView extends AppPageView {
     render () {
         return super.render(() => {
             return (
-                <div>
-                    <h1>BASE COMPONENT</h1>
+                <div onClick={ev => this.props.c.eventsBus.emit('body.click', ev)}>
+                    <TestHeader level={1}>
+                        BASE COMPONENT
+                        <Action eventsBus={this.props.c.root.eventsBus} type="body.click" action="nextColor"/>
+                    </TestHeader>
                     <ul>
                         {
                             (this.props.c.routes || []).reduce((menuItems, item, index) => {

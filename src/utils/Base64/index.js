@@ -2,19 +2,24 @@
  * Created by PBorisov on 07.05.18 15:45.
  */
 
-export function b64EncodeUnicode(str) {
+export function b64EncodeUnicode(obj) {
     // first we use encodeURIComponent to get percent-encoded UTF-8,
     // then we convert the percent encodings into raw bytes which
     // can be fed into btoa.
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+    let str = JSON.stringify(obj);
+    str = btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
         function toSolidBytes(match, p1) {
             return String.fromCharCode('0x' + p1);
         }));
+    return str;
 }
 
-export function b64DecodeUnicode(str) {
+export function b64DecodeUnicode(search) {
     // Going backwards: from bytestream, to percent-encoding, to original string.
-    return decodeURIComponent(atob(str).split('').map(function(c) {
+    let str = String(search || '');
+    str = str.startsWith('?') ? str.slice(1) : str;
+    str = decodeURIComponent(atob(str).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
+    return JSON.parse(str);
 }

@@ -7,14 +7,19 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import classRole from '../../../../../src/decorator/classRole/';
 import MenuItem from '../../../../../src/view/MenuItem/';
+import Action from '../../../../../src/view/Action/';
 import AppPageView from '../../../page/view.js';
+import TestHeader from '../../../view/TestHeader/';
 
 class AppGoodsPageView extends AppPageView {
     render () {
         return super.render(() => {
             return (
                 <div>
-                    <h2>GOODS COMPONENT</h2>
+                    <TestHeader level={2}>
+                        GOODS COMPONENT
+                        <Action eventsBus={this.props.c.root.eventsBus} type="body.click" action="nextColor"/>
+                    </TestHeader>
                     <ul>
                         {
                             (this.props.c.routes || []).reduce((menuItems, item, index) => {

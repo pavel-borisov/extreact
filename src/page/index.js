@@ -14,6 +14,7 @@ class Page {
     isReady = false;
     routes  = [];
     parent  = null;
+    view    = null;
     constructor (routes, args={}) {
         const {parent=null, ...inArgs} = args;
         this.isReady = false;
@@ -40,7 +41,7 @@ class Page {
     }
     render (View, props={}) {
         return (
-            <View c={this} {...props} />
+            <View ref={view => (this.view = view)} c={this} {...props} />
         );
     }
 }

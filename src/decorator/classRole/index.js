@@ -4,7 +4,7 @@
 
 export default function (role) {
     const strRole = String(role);
-    const isName  = strRole.charAt(0).toUpperCase() + strRole.slice(1).toLowerCase()
+    const isName  = strRole.charAt(0).toUpperCase() + strRole.slice(1).toLowerCase();
     return function (Class) {
         const ROLE = Symbol();
         Object.defineProperties(Class, {
