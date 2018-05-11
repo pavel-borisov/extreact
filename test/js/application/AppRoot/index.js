@@ -10,6 +10,7 @@ import EventsBus from '../../../../src/utils/EventsBus/';
 import AppRootView from './view.js';
 
 import TypeString from '../../../../src/type/scalar/string/';
+//import timeout from '../../../../src/utils/Timeout/';
 
 const routes = [
     {
